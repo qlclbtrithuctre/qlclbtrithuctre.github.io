@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    color: #0056b3;
+    text-align: center;
+}
+
+.file-input-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+#fileInput {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* THAY ĐỔI 1: Sắp xếp các bảng theo chiều dọc */
+.results-container {
+    display: flex;
+    /* Thay đổi hướng flexbox từ hàng (mặc định) thành cột */
+    flex-direction: column; 
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.table-section {
+    /* Không cần flex: 1 và min-width nữa vì các bảng đã chiếm toàn bộ chiều rộng */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+/* THAY ĐỔI 3: Cố định header của bảng khi cuộn */
+thead th {
+    background-color: #007bff;
+    color: white;
+    /* Đặt vị trí là "dính" ở phía trên */
+    position: sticky; 
+    top: 0;
+    /* Đảm bảo header nằm trên nội dung cuộn */
+    z-index: 10; 
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* THAY ĐỔI 2: Thiết lập chiều cao và cuộn cho phần thân bảng */
+tbody {
+    /* Đặt chiều cao tối đa để hiển thị khoảng 10 dòng */
+    /* 10 dòng * (padding trên/dưới 12px + chiều cao chữ ~20px) = ~320px. Cho thêm khoảng trống */
+    max-height: 400px; 
+    /* Bật cuộn dọc khi nội dung vượt quá chiều cao tối đa */
+    overflow-y: auto; 
+}
+
+td input {
+    width: 95%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#postButton {
+    display: block;
+    width: 250px;
+    margin: 30px auto 0;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#postButton:hover {
+    background-color: #218838;
+}
