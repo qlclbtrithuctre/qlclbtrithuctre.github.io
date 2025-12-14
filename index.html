@@ -4,57 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý giao dịch</title>
-    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
+    <div class="main-wrapper">
+        <div class="content-area">
+            <div class="container">
+                <div id="select-file">
+                    <h1>Quản lý giao dịch QR-Code</h1>
+                </div>
+                <div class="file-input-wrapper">
+                    <label for="fileInput">Chọn file giao dịch (*.txt):</label>
+                    <input type="file" id="fileInput" accept=".txt">
+                </div>
 
-    <div class="container">
-        <h1>Quản lý giao dịch QR-Code</h1>
-        <div class="file-input-wrapper">
-            <label for="fileInput">Chọn file giao dịch (*.txt):</label>
-            <input type="file" id="fileInput" accept=".txt">
-        </div>
-
-        <div id="resultsContainer" class="results-container" style="display: none;">
-            <div class="table-section">
-                <h2>Chuyển khoản bằng QR-Code</h2>
-                <table id="matchedTable">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Ngày</th>
-                            <th>Nội dung (CK bằng QR)</th>
-                            <th>Số tiền</th>
-                            <th>Ghi chú</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Dữ liệu sẽ được thêm vào đây bởi JavaScript -->
-                    </tbody>
-                </table>
-                <button id="postButton" style="visibility: hidden;">Cập nhật lên link Sheet</button>
+                <div id="resultsContainer" class="results-container" style="display: none;">
+                    <div class="table-section" id="qr-transactions">
+                        <h2>Chuyển khoản bằng QR-Code </br>(bấm vào TÊN CỘT để sắp xếp)</h2>
+                        <table id="matchedTable">
+                            <thead>
+                                <br>
+                                    <th>#</th>
+                                    <th>Ngày</th>
+                                    <th>Nội dung (CK bằng QR)</th>
+                                    <th>Số tiền</th>
+                                    <th>Lớp</th>
+                                    <th>ID h/s</th>
+                                    <th>Ghi chú</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dữ liệu sẽ được thêm vào đây bởi JavaScript -->
+                            </tbody>
+                        </table>
+                        <div id="update-button">
+                            <button id="postButton" style="visibility: hidden;">Cập nhật lên link Sheet</button>
+                        </div>
+                    </div>
+                    <div class="table-section" id="other-transactions">
+                        <h2>Chuyển khoản thường </br>(Cột "Lớp" & "ID h/s" có thể sai - bấm vào TÊN CỘT để sắp xếp)</h2>
+                        <table id="unmatchedTable">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Ngày</th>
+                                    <th style="color: yellow;">Nội dung</th>
+                                    <th>Số tiền</th>
+                                    <th style="color: yellow;">Lớp*</th>
+                                    <th style="color: yellow;">ID h/s*</th>
+                                    <th>Ghi chú</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dữ liệu sẽ được thêm vào đây bởi JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="footer" style="padding-top: 10px;text-align: right;">
+                    <a href="#select-file" class="nav-link">Quay về đầu trang</a>
+                </div>
             </div>
-            <div class="table-section">
-                <h2>Giao dịch khác</h2>
-                <table id="unmatchedTable">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Ngày</th>
-                            <th>Nội dung (KHÔNG CK bằng QR)</th>
-                            <th>Số tiền</th>
-                            <th>Ghi chú</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Dữ liệu sẽ được thêm vào đây bởi JavaScript -->
-                    </tbody>
-                </table>
-            </div>
         </div>
+        <aside id="menu">
+            <h3>Menu</h3>
+            <ul class="nav-menu">
+                <li><a href="#select-file" class="nav-link">Chọn file</a></li>
+                <li><a href="#qr-transactions" class="nav-link">Chuyển khoản QR-Code</a></li>
+                <li><a href="#update-button" class="nav-link">Cập nhật lên link Sheet</a></li>
+                <li><a href="#other-transactions" class="nav-link">Chuyển khoản thường</a></li>
+                <li><a href="#footer" class="nav-link">Chân trang</a></li>
+            </ul>
+        </aside>
     </div>
-
-    <script src="/assets/script.js"></script>
+    
+    <script src="./assets/script.js"></script>
 </body>
-
 </html>

@@ -107,3 +107,97 @@ td input {
 #postButton:hover {
     background-color: #218838;
 }
+
+/* New styles for the aside navigation */
+.main-wrapper {
+    display: flex;
+    position: relative;
+}
+
+aside {
+    width: 220px;
+    background-color: #f8f9fa;
+    /* Thay đổi từ border-right sang border-left */
+    border-left: 1px solid #dee2e6;
+    padding: 20px 10px;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+    /* Thay đổi border-radius cho góc bên phải */
+    border-radius: 0 8px 8px 0;
+    /* Thay đổi box-shadow để đổ bóng về bên trái */
+    box-shadow: 2px 0 4px rgba(0,0,0,0.05);
+}
+
+aside h3 {
+    margin-top: 0;
+    color: #0056b3;
+    font-size: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.nav-menu {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.nav-menu li {
+    margin-bottom: 10px;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 8px 15px;
+    color: #495057;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s;
+    font-size: 14px;
+}
+
+.nav-menu a:hover {
+    background-color: #e9ecef;
+    color: #0056b3;
+    /* Thay đổi hướng của transform từ phải sang trái */
+    transform: translateX(-5px);
+}
+
+.nav-menu a.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.content-area {
+    flex: 1;
+    /* Thay đổi từ padding-left sang padding-right */
+    padding-right: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-wrapper {
+        flex-direction: column;
+    }
+    
+    aside {
+        width: 100%;
+        position: static;
+        margin-bottom: 20px;
+        border-radius: 8px 8px 0 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid #dee2e6;
+        /* Đảm bảo aside luôn ở trên cùng */
+        order: -1;
+    }
+    
+    .content-area {
+        padding: 0;
+        /* Đảm bảo content-area hiển thị sau aside */
+        order: 1;
+    }
+}
+
+.sort-arrow { font-size: 0.8em; color: #555; }
